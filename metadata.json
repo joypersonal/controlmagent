@@ -1,0 +1,82 @@
+{
+  "author": "Tomasz Wladyczanski, https://www.linkedin.com/in/tomekw",
+  "dependencies": [
+  	
+  ],
+  "license": "GNU General Public License v3",
+  "name": "tw-controlmagent",
+  "operatingsystem_support": [
+  	{
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ],
+      "operatingsystem": "RedHat"
+    },
+    {
+      "operatingsystemrelease": [
+        "6"
+      ],
+      "operatingsystem": "CentOS"
+    },
+    {
+      "operatingsystemrelease": [
+      	"5",
+        "6"
+      ],
+      "operatingsystem": "OracleLinux"
+    },
+    {
+      "operatingsystemrelease": [
+        "10",
+        "11"
+      ],
+      "operatingsystem": "SLES"
+    },
+    {
+      "operatingsystemrelease": [
+        "10",
+        "11"
+      ],
+      "operatingsystem": "Solaris"
+    },
+    {
+      "operatingsystemrelease": [
+        "5.3",
+        "6.1",
+        "7.1"
+      ],
+      "operatingsystem": "AIX"
+    },
+    {
+      "operatingsystemrelease": [
+        "11.11",
+        "11.23",
+        "11.31"
+      ],
+      "operatingsystem": "HP-UX"
+    }
+  ],
+  "project_page": "http://uid-0.blogspot.com/2014/11/deploying-and-patching-control-magent.html",
+  "issues_url": "http://uid-0.blogspot.com/2014/11/deploying-and-patching-control-magent.html",
+  "requirements": [
+  	{
+      "version_requirement": "3.x",
+      "name": "pe"
+    },
+    {
+      "version_requirement": "3.x",
+      "name": "puppet"
+    }
+  ],
+  "source": "http://uid-0.blogspot.com/2014/11/deploying-and-patching-control-magent.html",
+  "summary": "Puppet module for BMC Control-M/Agent 8 installation on Linux/UNIX",
+  "tags": [
+  	"control-m",
+  	"control",
+  	"m",
+  	"agent",
+  	"bmc"
+  ],
+  "version": "0.0.7"
+}

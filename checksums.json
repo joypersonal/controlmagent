@@ -1,0 +1,11 @@
+{
+  "Rakefile": "f37e6131fe7de9a49b09d31596f5fbf1",
+  "LICENSE": "4ddd17b0c9241d7b24a4960caefe8e40",
+  "templates/controlm_agent_silent.xml.erb": "cb44ece40df0016e419e03691a58a64b",
+  "metadata.json": "12eb805ca6ef2bfd0286f62abc6f9a12",
+  "manifests/init.pp": "aa161a8c808bb39ac8bfc489ab70b6a4",
+  "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+  "tests/init.pp": "049a9a7a9444f4bd60c9e65757ae3261",
+  "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
+  "README.markdown": "12ba4e04b0b1e2e650b820148b2d7ae6"
+}

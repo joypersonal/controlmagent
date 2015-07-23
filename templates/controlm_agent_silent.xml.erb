@@ -1,0 +1,12 @@
+<AutomatedInstallation langpack="eng">
+    <target.product>Control-M/Agent 8.0.00</target.product>
+    <agent.parameters>
+        <entry key="field.Authorized.Controlm.Server.Host" value="<%= authorizedServers %>"/>
+        <entry key="ctm_agent.Tracker.Event.Port" value="<%= trackerEventPort %>"/>
+        <entry key="field.Agent.To.Server.Port.Number" value="<%= agentToServer %>"/>
+        <entry key="ctm_agent.Tcp_ip.Timeout" value="<%= tcpIpTimeout %>"/>
+        <entry key="field.Server.To.Agent.Port.Number" value="<%= serverToAgent %>"/>
+        <entry key="Ignore.Disabling.Agent.Failure" value="<%= disablingAgentFailure %>"/>
+        <entry key="field.Primary.Controlm.Server.Host" value="<%= primaryServer %>"/>
+    </agent.parameters>
+</AutomatedInstallation>
