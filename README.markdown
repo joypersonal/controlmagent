@@ -1,6 +1,6 @@
 The controlmagent module is for installation of BMC Control-M/Agent 8 on Linux/UNIX.
 
-version 0.0.7: 26 November 2014 by Tomasz Wladyczanski
+Based on version 0.0.7: 26 November 2014 by Tomasz Wladyczanski
 
 https://www.linkedin.com/in/tomekw
 http://uid-0.blogspot.com

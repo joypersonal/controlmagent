@@ -4,6 +4,9 @@
 #
 # Idea is to use this mkdir_p in conjunction with a file resource
 #
+# Code borrowed from : 
+# https://github.com/ghoneycutt/puppet-module-common
+#
 # Example usage:
 #
 #  controlmagent::mkdir_p { '/some/dir/structure': }
@@ -18,8 +21,8 @@ define controlmagent::mkdir_p () {
   validate_absolute_path($name)
 
   exec { "mkdir_p-${name}":
-    command      => "mkdir -p ${name}",
-    unless   => "test -d ${name}",
-    path => '/bin:/usr/bin',
+    command => "mkdir -p ${name}",
+    unless  => "test -d ${name}",
+    path    => '/bin:/usr/bin',
   }
 }

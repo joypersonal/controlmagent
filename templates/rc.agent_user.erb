@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# set minimal PATH to make sure basic commands like grep and awk are recognized
+PATH=/usr/sbin/:/usr/bin:/sbin:$PATH
+export PATH
+
+account_name="control-m"
+install_path="/home/control-m"
+
+# set config file name
+config_file=$install_path/ctm/data/CONFIG.dat
+
+# get the value for config parameter AGENT_STATUS
+agent_status=`grep AGENT_STATUS $config_file | awk '{print $2}'`
+
+if [ "$agent_status" = "STOPPED" ] ; then # AGENT_STATUS is set to 'STOPPED', exit without starting the Agent
+    echo "Control-M/Agent (account $account_name) status is set to 'STOPPED'. Control-M/Agent will not start."
+    exit 0
+fi
+
+# get the value for config parameter AGENT_OWNER to determine which owner should start the agent
+# in case the parameter is missing or empty, start as root.
+# This script is executed as root user by the OS during machine startup.
+# If the agent should run as agent owner, use 'su' to run start-ag
+agent_owner=`grep AGENT_OWNER $config_file | awk '{print $2}'`
+
+if [ "$agent_owner" != "root" ] ; then
+    /bin/su - $agent_owner -c "$install_path/ctm/scripts/start-ag -u $account_name -p ALL"
+else
+    $install_path/ctm/scripts/start-ag -u $account_name -p ALL
+fi
+
+exit 0
+

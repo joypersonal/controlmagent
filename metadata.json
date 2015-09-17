@@ -1,7 +1,10 @@
 {
   "author": "Tomasz Wladyczanski, https://www.linkedin.com/in/tomekw",
   "dependencies": [
-
+     {
+       "name": "nanliu/archive",
+       "version_requirement": ">=0.0.3"
+     }
   ],
   "license": "GNU General Public License v3",
   "name": "tw-controlmagent",
