@@ -1,0 +1,119 @@
+from the installation manual :
+
+control-m has multiple parts.
+
+Client must be isntalled in a windows
+Can run agentless also ?
+
+This part is only the agent on linux.
+Can be autmated installation -> isntaller + xml file
+
+Things  that are mutable during installtion/setup :
+
+Control-m/Enterprise Manager
+Control-m/server
+Database Server -> multiple are supported - out of scope
+
+Agent specific !!!
+
+Software must reside on local filesystem
+Must be installed in the control-m user's home dir
+(but can also be a symbolic link pointing to another location on local disk)
+Permission should be 755 at least (allow read and execute to all users ...)
+Can be run in both root and non-root mode.   Security issue bij group writable files created by the agent.  So control-m useer should be the only peron in its primary group.
+
+Unix user account 
+=================
+
+Module needs an option to create local user or not !
+(may be :
+* local user
+* ldap user
+* Nis user
+)
+Home dir MUST reside on  local disk vor control-M/server-agent
+(for EM -> local or nfs)
+
+shell ->  csh/tsch/sh/ksh/bash
+Limits for the control-m user :
+datazise 2GB
+stacksize 8MB
+coredumosize = datasize
+descriptors = 4096
+memoryuse = unlimited
+
+Kernel parameters --> really needed for the agent ??
+
+
+Post installation actions :
+
+control-m agent ad non-root :
+
+execute set_agent_node wit option enabler_non_roor_mode
+replace /adjust automatic startup script
+Stop agent, and restart using right user
+
+Startup script :
+
+rc.agent_user is provided in the agent_installfolder
+
+!!! script does not restart shutdown controlm agents (eg when stopped manually) !!
+
+could be a problem with puppet ??
+
+
+
+Installation procedure !
+
+setup.sh --silent <xml file>
+
+
+
+
+semmsl 150
+semmns 800
+semopm 100
+semmni 200
+semvmx default set by system
+kernel.shmall 600000000
+kernel.shmmax 600000000 -- ceil(SHMMAX/PAGE_SIZE) or set it to 600000000,
+kernel.shmmni 800
+file-max 65536
+ip_local_port_range 32768 - 61000
+
+for agent only :
+
+semmns : Current value +1 for each instance installed
+semmni : Current value +1 for each instance installed
+
+
+semmsl, semmns,
+semopm, semmni /sbin/sysctl -a | grep sem
+shmall, shmmax,
+shmmni /sbin/sysctl -a | grep shm
+file-max /sbin/sysctl -a | grep file-max
+ip_local_port_range /sbin/sysctl -a | grep ip_local_port_range
+
+
+user limits not for agent
+
+firewall:
+
+Agentless -> port 22 from agent node to egentless node and 1435 en 445 voor WMI (windows)
+Agent -> between control-m?server and Control-m/agent -> 7005 en 7006
+
+
+installation :
+
+primary Control-m server  --> mandatory unset
+authorized control-m server --> undef
+agent-to-server port 7005
+server-to-agent port 7006
+
+pre create user and group --> with supported shell
+
+post intsallation -> strartup script
+start-ag (opstarten van de agent)
+
+
+
