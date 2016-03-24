@@ -104,6 +104,30 @@ class controlmagent (
   $disablingAgentFailure = false ) inherits controlmagent::params
   {
 
+    # boolean parameter validation
+
+    validate_bool($arch_used)
+    validate_bool($arch_extract)
+    validate_bool($arch_clean)
+    validate_bool($manage_ctm_user)
+    validate_bool($run_as_root)
+    validate_bool($disablingAgentFailure)
+
+    # path validation
+
+    validate_absolute_path($arch_path)
+    validate_absolute_path($tempDir)
+
+    # numeric validation
+    validate_integer($trackerEventPort)
+    validate_integer($agentToServer)
+    validate_integer($tcpIpTimeout)
+    validate_integer($serverToAgent)
+
+    if $ctm_shell and !($ctm_shell in [ '/bin/csh', '/bin/tcsh', '/bin/ksh', '/bin/bash', '/bin/sh' ]) {
+      fail('ctm_shell can only be set to one of the following supported shells : /bin/csh, /bin/tcsh, /bin/ksh, /bin/bash, /bin/sh')
+    }
+
     # system prerequisites
     if $manage_ctm_user {
       if $ctm_user == 'root' {
